@@ -10,11 +10,16 @@ import 'components/home_grid_view.dart';
 import 'components/post_list.dart';
 
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
 
 
   const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     PageController homeController = PageController();
@@ -180,6 +185,7 @@ class HomeScreen extends StatelessWidget {
                   const Spacer(),
                 ],
               ),
+              SizedBox(height: 5.0,),
               const HomeGridView(),
               Row(
                 children: [
@@ -208,11 +214,12 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: ConvexAppBar(
-        items: const [
+        items:  [
           TabItem(icon: Icons.account_circle_rounded, title: 'حسابي'),
           TabItem(icon: Icons.nearby_off_outlined, title: 'مجاور لك'),
           TabItem(
-              icon: Icons.home_outlined,),
+              icon: Icons.home_outlined,
+          activeIcon: Image.asset('assets/images/bottom.png'),),
           TabItem(icon: Icons.category, title: 'الأقسام'),
           TabItem(icon: Icons.more_horiz_outlined, title: 'المزيد'),
         ],

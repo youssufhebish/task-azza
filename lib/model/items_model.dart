@@ -2,7 +2,7 @@ class ItemsModel{
   final String image;
   final String title;
   final String price;
-  final bool isFavourite;
+  bool isFavourite;
 
   ItemsModel({
     required this.image,

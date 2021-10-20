@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:task/component/color.dart';
 import 'package:task/model/items_model.dart';
 
-class HomeGridView extends StatelessWidget {
+class HomeGridView extends StatefulWidget {
   const HomeGridView({Key? key}) : super(key: key);
 
+  @override
+  State<HomeGridView> createState() => _HomeGridViewState();
+}
+
+class _HomeGridViewState extends State<HomeGridView> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,7 +25,7 @@ class HomeGridView extends StatelessWidget {
         children: [
           for(int i = 0; i < itemsList.length; ++i)
             Padding(
-              padding: const EdgeInsets.all(4.0),
+              padding: const EdgeInsets.all(0.0),
               child: Container(
                 height: 170.0,
                 width: 230.0,
@@ -61,8 +66,14 @@ class HomeGridView extends StatelessWidget {
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(35.0),
                               ),
-                              child: IconButton(onPressed: (){}, icon: const Icon(Icons.favorite_border,
+                              child: IconButton(onPressed: (){
+                                setState(() {
+                                  itemsList[i].isFavourite = !itemsList[i].isFavourite;
+                                });
+                              }, icon: !itemsList[i].isFavourite? Icon(Icons.favorite_border,
                                 color: Colors.grey,
+                                size: 15.0,) : Icon(Icons.favorite,
+                                color: Colors.red,
                                 size: 15.0,)),
                             ),
                           ),

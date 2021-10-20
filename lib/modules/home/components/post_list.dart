@@ -13,7 +13,7 @@ class PostListView extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: const EdgeInsets.symmetric(vertical: 5.0),
           child: Container(
             height: 250.0,
             width: double.infinity,

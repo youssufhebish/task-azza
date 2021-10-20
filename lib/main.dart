@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           elevation: 0.0,
           color: Colors.white,
         ),
-        fontFamily: 'IBM'
+        fontFamily: 'IBM',
       ),
       home: SplashScreenView(
         navigateRoute: Directionality(
